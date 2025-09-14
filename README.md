@@ -1,18 +1,17 @@
-# Welcome to Atari Games DQN implementations
+# Atari Games – DQN & R2D2 Implementations
 
 ---
 
-This repository allows you to access the training and preview notebooks for different game environments: CartPole, Atari games Space Invaders, Pacman.
+This repository contains training and preview notebooks for different game environments: CartPole and Atari games Space Invaders, Pacman.
 
-DQNs from this repository are trained to play these games as well as Pong better than the human benchmarks reported by "DNADRL human" (Ziyu Wang et. al), as measured by average points over 100 episodes. This does not mean better than the _best_ human players: best human scores are much higher and higher than what top AIs achieve (see the [comparison](https://eject.com.au/sodeepdude/comparison-of-human-scores-and-human-scores-in-atari/)).
+DQNs from this repository are trained to play these games as well as Pong better than the human benchmarks reported by "DNADRL human" (Ziyu Wang et. al), as measured by average points over 100 episodes. This does not mean better than the _best_ human: best human scores are much higher and higher than what top AIs achieve (see the [comparison](https://eject.com.au/sodeepdude/comparison-of-human-scores-and-human-scores-in-atari/)).
 
 I used a classic MLP DQN for CartPole, and a custom R2D2 implementation for other games. A classic double dueling DQN with reward clipping for Space Invaders is also implemented in-between and represents a decent result. R2D2 ended up being implemented and tested on MPS backend specifically, so might not work for CUDA and other backends.
 
 * **`Atari_Games.ipynb`**: self-contained notebook with multiple DQN variants (DQN/Double Dueling/R2D2). Includes an **episodic replay buffer** (`episodic_replay_buffer.py`) module for R2D2.
-* **`Preview_Models.ipynb`**: loads checkpoints from `checkpoints_*` and lets you watch trained agents play Space Invaders / Pacman / CartPole real-time.
+* **`Preview_Models.ipynb`**: loads checkpoints from `checkpoints_*` and lets you watch trained agents play Space Invaders / Pacman / CartPole real-time. Contains fast evaluation at the end.
 
 ## Installation
-Installation steps are included in `Atari_Games.ipynb`, but put compactly they are:
 ```bash
 pip install gymnasium pygame
 pip install ale-py autorom
@@ -22,7 +21,10 @@ pip install numba
 pip install stable_baselines3 # not required
 ```
 
-## Usage
-**Train:** Run a `Atari_Games.ipynb` cell that defines algorithm and then a cell that runs it, in order to train a model. If you want to train the models from zero, delete the contents of `checkpoints_*` folder.
+## Quickstart
 
-**To play:** To preview a trained model, just run the cells from `Preview_Models.ipynb`. The latest model checkpoints are included in the folders `checkpoints_*` and are used automatically, so training is not required to preview the models.
+1. Launch Jupyter: `jupyter notebook`
+2. In `Atari_Games.ipynb`, run the algorithm cell you want, then the run cell to train.
+3. To retrain from scratch, clear `checkpoints_*`.
+
+In `Preview_Models.ipynb`, run the preview cells. It will pick the latest/best checkpoints automatically. To measure performance, run the evaluate cells.
