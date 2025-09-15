@@ -2,9 +2,9 @@
 
 ---
 
-This repository contains training and preview notebooks for different game environments: CartPole and Atari games Space Invaders, Pacman.
+This repository contains training and preview notebooks for different game environments: CartPole and Atari games Space Invaders, Pacman and Pong.
 
-DQNs from this repository are trained to play these games as well as Pong better than the human benchmarks reported by "DNADRL human" (Ziyu Wang et. al), as measured by average points over 100 episodes. This does not mean better than the _best_ human: best human scores are much higher and higher than what top AIs achieve (see the [comparison](https://eject.com.au/sodeepdude/comparison-of-human-scores-and-human-scores-in-atari/)).
+DQNs from this repository are trained to play these games better than the human benchmarks reported by "DNADRL human" (Ziyu Wang et. al), as measured by average points over 100 episodes. This does not mean better than the _best_ human: best human scores are much higher and higher than what top AIs achieve (see the [comparison](https://eject.com.au/sodeepdude/comparison-of-human-scores-and-human-scores-in-atari/)).
 
 I used a classic MLP DQN for CartPole, and a custom R2D2 implementation for other games. A classic double dueling DQN with reward clipping for Space Invaders is also implemented in-between and represents a decent result. R2D2 ended up being implemented and tested on MPS backend specifically, so might not work for CUDA and other backends.
 
