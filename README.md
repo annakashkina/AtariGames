@@ -28,3 +28,6 @@ pip install stable_baselines3 # not required
 3. To retrain from scratch, clear `checkpoints_*`.
 
 In `Preview_Models.ipynb`, run the preview cells. It will pick the latest/best checkpoints automatically. To measure performance, run the evaluate cells.
+
+## Acknowledgements
+I thank the researchers whose work underpins this project - Mnih et al. (DQN), van Hasselt et al. (Double DQN), Wang et al. (Dueling), Schaul et al. (PER), and Kapturowski et al. (R2D2) - and Sutton & Barto for their foundational textbook. I am grateful to the Gymnasium/ALE, PyTorch (including the MPS backend), and Numba communities for the tools that made this implementation possible. Any errors or misinterpretations are mine alone.
