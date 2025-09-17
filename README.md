@@ -6,10 +6,11 @@ This repository contains training and preview notebooks for different game envir
 
 DQNs from this repository are trained to play these games better than the human benchmarks reported by "DNADRL human" (Ziyu Wang et. al), as measured by average points over 100 episodes. This does not mean better than the _best_ human: best human scores are much higher and higher than what top AIs achieve (see the [comparison](https://eject.com.au/sodeepdude/comparison-of-human-scores-and-human-scores-in-atari/)).
 
-I used a classic MLP DQN for CartPole, and a custom R2D2 implementation for other games. A classic double dueling DQN with reward clipping for Space Invaders is also implemented in-between and represents a decent result. R2D2 ended up being implemented and tested on MPS backend specifically, so might not work for CUDA and other backends.
+I used a classic MLP DQN for CartPole, and a custom R2D2 implementation for other games. A classic double dueling DQN with reward clipping for Space Invaders is also implemented in-between and represents a decent result. R2D2 ended up being implemented and tested on MPS backend specifically, so might not work for CUDA and other backends. Models preview should work on different platforms.
 
 * **`Atari_Games.ipynb`**: self-contained notebook with multiple DQN variants (DQN/Double Dueling/R2D2). Includes an **episodic replay buffer** (`episodic_replay_buffer.py`) module for R2D2.
 * **`Preview_Models.ipynb`**: loads checkpoints from `checkpoints_*` and lets you watch trained agents play Space Invaders / Pacman / CartPole real-time. Contains fast evaluation at the end.
+* **`Preview_Models_OpenCV.ipynb`**: same as `Preview_Models.ipynb`, but uses OpenCV instead of gymnasium's `render_mode='human'` for rendering.
 
 ## Installation
 ```bash
@@ -19,6 +20,7 @@ AutoROM --accept-license
 pip install "gymnasium[atari,accept-rom-license]"
 pip install numba
 pip install stable_baselines3 # not required
+pip install opencv-python # only required for OpenCV preview
 ```
 
 ## Quickstart
